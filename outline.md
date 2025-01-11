@@ -50,20 +50,35 @@ How do resource utilization patterns affect job outcomes? What are common failur
 
 ## Results and Discussion
 
-### For Idea 1:
-- Job Failure Pattern Analysis
-- Resource Utilization Correlation
-- Failure Prediction Implications
+### For Idea 1 (Job Failure vs Resource Usage):
+- Analysis of job failure distribution
+- Correlation between resource utilization metrics and failures
+- Identification of resource usage patterns preceding failures
+- Implications for failure prediction and prevention
 
-### For Idea 2:
-- Runtime Estimation Analysis
-- User Behavior Patterns
-- Scheduling Implications
+### For Idea 2 (Resource Contention Impact):
+- Analysis of concurrent resource usage patterns
+- Investigation of resource contention scenarios
+- Memory + Block I/O combinations
+- CPU + Memory combinations
+- CPU + Block I/O combinations
+- Impact of resource contention on job completion rates
+- Variations across different queue types
+- Implications for resource allocation and scheduling
 
-### For Idea 3:
-- Resource Contention Analysis
-- Impact on Job Completion
-- System Optimization Implications
+### For Idea 3 (Workload Impact):
+- Analysis of concurrent job patterns
+- Correlation between number of concurrent jobs and failure rates
+- Investigation of peak workload periods
+- Impact of system load on job success rates
+- Variations by job type and queue
+- Implications for workload management
+
+### Each of these sections might include:
+- Detailed statistical analysis
+- Relevant visualizations
+- Discussion of findings
+- Practical implications
 
 
 ## Applications
