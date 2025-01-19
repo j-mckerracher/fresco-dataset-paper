@@ -102,24 +102,150 @@ How do resource utilization patterns affect job outcomes? What are common failur
     - Extension to other institutions
 
 ## Related Work
+### Existing HPC Datasets and Their Limitations
 
-1. Existing HPC datasets
-> - USRC dataset (historical performance and failure data, released 2005)
-> - Large-scale disk failure dataset (5,000 failures from 40,000 disks over 5 years)
-> - Challenges with current datasets (unstructured logs, poor standardization)
-2. HPC system analysis studies
-> - Current approaches to fault prediction and analysis
-> - Limitations of traditional fault-tolerance strategies like checkpointing
-4. Resource utilization analysis
-> - Common metrics tracked in HPC environments
-> - Importance of time-series data for operational analysis
-4. Job failure analysis
-> - Current methods for correlating resource usage with failures
-> - Challenges in real-time fault detection
-5. Gap analysis showing need for FRESCO
-> - Lack of standardized, comprehensive datasets across institutions
-> - Need for combined operational metrics and job outcome data
-> - Limited availability of public HPC operational data
+The landscape of publicly available HPC system datasets is limited, with most existing collections focusing on narrow aspects of system behavior or specific failure modes. The USRC dataset, released in 2005, pioneered the public sharing of HPC failure data but primarily captures failure events without broader operational context. While valuable for basic failure analysis, it lacks the granularity needed to understand complex system interactions and modern operational patterns.
+
+Recent contributions include large-scale disk failure datasets, comprising over 5,000 failure records from more than 40,000 disks collected over five years. These datasets have advanced our understanding of storage subsystem reliability but are limited in scope, focusing solely on storage components without integration into broader system metrics.
+
+Current datasets face several key challenges:
+- Unstructured log formats that complicate analysis
+- Poor standardization across institutions
+- Limited scope, often focusing on single subsystems
+- Lack of operational context around failure events
+
+### HPC System Analysis Studies
+
+#### Current Analysis Approaches
+Traditional fault-tolerance strategies like checkpointing and replication have been the mainstay of HPC system reliability. However, as systems grow in scale and complexity, these reactive approaches prove insufficient. Modern HPC environments require proactive failure management strategies based on comprehensive system understanding.
+
+Here are the key limitations that make these reactive approaches inadequate for modern computing environments:
+
+##### Scale-Related Issues
+
+- Growing Data Volume
+  - Modern HPC jobs handle petabytes of data
+  - Checkpointing this volume of data takes significant time
+  - The time to write checkpoints can exceed the mean time between failures
+  - Example: If checkpointing takes 2 hours and system failures occur every 1.5 hours on average, the system spends more time checkpointing than computing
+
+- Resource Overhead
+  - Replication requires 2x or 3x resources for redundancy
+  - At large scales, this becomes prohibitively expensive
+  - Example: A job needing 1000 nodes would require 2000-3000 nodes with replication
+  - Storage requirements double or triple
+
+##### Complexity-Related Issues
+
+- Interdependent Failures
+  - Modern HPC systems have complex interconnected components
+  - Failures in one subsystem can cascade to others
+  - Reactive approaches can't prevent these cascade effects
+    - Example: A network issue might cause multiple nodes to fail simultaneously, affecting all replicas
+
+- Multiple Failure Modes
+  - Systems face varied failure types (hardware, software, network)
+  - Each type requires different recovery strategies
+  - Reactive approaches treat all failures similarly
+  - Can't optimize recovery based on failure type
+
+##### Performance Impact
+
+- Increasing Overhead
+  - More frequent checkpointing needed as systems grow
+  - Higher overhead from I/O operations
+  - Network congestion from checkpoint traffic
+    - Example: A system might spend 30% of its time just managing checkpoints
+
+- Resource Contention
+  - Multiple jobs competing for I/O resources during checkpointing
+  - Network bandwidth limitations
+  - Storage system bottlenecks
+
+##### Modern Workload Challenges
+
+- Dynamic Resource Needs
+  - Modern applications have varying resource requirements
+  - Reactive approaches assume static resource needs
+  - Can't adapt to changing workload patterns
+
+- Real-time Requirements
+  - Many applications need real-time processing
+  - Cannot afford the delay of reactive recovery
+  - Time to restore from checkpoints may exceed acceptable latency
+
+##### Cost Implications
+
+- Operational Costs
+  - High energy consumption from redundant computation
+  - Storage costs for checkpoint data
+  - Additional hardware for redundancy
+    - Example: Doubling hardware and energy costs for replication
+
+- Management Complexity
+  - Increased system administration overhead
+  - More complex scheduling systems needed
+  - Higher maintenance costs
+
+#### Performance Analysis Methods
+Current performance analysis techniques face several limitations:
+- Difficulty in capturing real-time system behavior
+- Challenges in correlating metrics across subsystems
+- Impact of varying system architectures on analysis
+- Limited benchmarking approaches for modern workloads
+
+### Resource Utilization Analysis
+
+#### Common Metrics
+HPC environments typically track several key metrics:
+- CPU utilization and threading patterns
+- Memory usage and page faults
+- I/O operations and bandwidth
+- Network utilization
+- Power consumption
+
+#### Time-Series Analysis
+Understanding temporal patterns in resource utilization is crucial for system optimization. Current approaches focus on:
+- Statistical analysis of usage patterns
+- Correlation between different metrics
+- Trend analysis and forecasting
+  However, these methods often lack the granularity and breadth needed for comprehensive system understanding.
+
+### Job Failure Analysis
+
+#### Current Methods
+Existing approaches to job failure analysis include:
+- Statistical correlation between resource usage and failures
+- Machine learning for failure prediction
+- Pattern recognition in system logs
+
+These methods are limited by:
+- Incomplete data about system state
+- Lack of standardization in failure categorization
+- Limited integration with operational metrics
+
+#### Real-time Detection Challenges
+Real-time failure detection faces several obstacles:
+- Processing large volumes of monitoring data
+- Balancing detection accuracy with timeliness
+- Integration with job scheduling systems
+- Resource overhead of monitoring systems
+
+### Gap Analysis
+
+#### Current Limitations
+The field faces several significant limitations:
+- Lack of standardized metrics across institutions
+- Missing operational context in failure data
+- Limited public availability of comprehensive datasets
+- Poor integration between different monitoring systems
+
+#### Need for FRESCO
+FRESCO addresses these limitations through:
+- Unified approach to data collection and organization
+- Integration of operational metrics with job outcomes
+- Multi-institutional scope with standardized metrics
+- Comprehensive coverage of system behavior
 
 
 ## Dataset Description
