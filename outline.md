@@ -9,18 +9,97 @@
 
 ## Introduction
 ### Problem Statement
-- Elaborate on the need for public HPC operational data. 
-  - "While datasets like USRC's exist, they primarily focus on failure events alone. Private sector organizations, which operate many large-scale computing facilities, rarely share detailed system metrics paired with failure data".
-- Current challenges in HPC system analysis.
+- The Current State and Significance:
+  - HPC and distributed computing systems are now fundamental infrastructure for scientific research, industry, and academia 
+  - The scale and complexity of these systems continues to grow 
+  - Understanding system behavior, resource usage patterns, and failure modes is critical for:
+    - Maintaining system reliability 
+    - Optimizing resource allocation 
+    - Improving job completion rates 
+    - Reducing operational costs
+
+- The Core Problem:
+  - There is a critical lack of publicly available operational data from production HPC systems 
+  - Private sector organizations rarely share detailed system metrics and failure data 
+  - Existing public datasets (like USRC) focus narrowly on failure events without the broader operational context 
+  - This data scarcity creates a significant barrier for research in:
+    - System dependability 
+    - Resource optimization 
+    - Failure prediction 
+    - Performance modeling
+
+- The Gap in Current Solutions:
+  - Most existing datasets lack the combination of:
+    - Detailed resource utilization metrics 
+    - Job-specific attributes 
+    - Failure data 
+    - Cross-institutional standardization 
+  - Current approaches to studying HPC system behavior are limited by:
+    - Incomplete data about system state before failures 
+    - Insufficient context about resource utilization patterns 
+    - Lack of standardized metrics across different institutions
+
+- The Impact
+  - This data scarcity impedes:
+    - Development of better failure prediction models 
+    - Understanding of resource contention patterns 
+    - Optimization of job scheduling algorithms 
+    - Research into system dependability 
+  - The community lacks the empirical foundation needed to develop and validate new approaches to HPC system management
+
 ### Research Questions:
 How do resource utilization patterns affect job outcomes? What are common failure modes in academic HPC systems?  How can we improve system dependability?
 ### Contributions:
-- Dataset description and scope
-> - First multi-institutional dataset combining both detailed operational metrics and job outcomes
-> - Standardized approach to collecting and organizing HPC metrics across different institutions
-- Analysis methodology
-- Key findings
+- Novel Dataset Characteristics:
+  - First multi-institutional dataset that combines:
+    - Detailed operational metrics (CPU, GPU, memory, NFS, block I/O)
+    - Complete job lifecycle information 
+    - Standardized metrics across different institutions 
+    - Rich contextual data about resource allocation and usage 
+  - Comprehensive temporal coverage:
+    - Continuous time-series format 
+    - Captures both normal operations and failure events 
+    - Enables analysis of system behavior over time 
+    - Allows correlation between resource usage and job outcomes
 
+- Methodological Contributions:
+  - Standardized approach to collecting and organizing HPC metrics:
+    - Unified data collection methodology using XDMoD 
+    - Consistent metric definitions across institutions 
+    - Reproducible collection process 
+    - Validated data quality assurance procedures
+
+- Analysis Framework? This section will depend on what analysis is done.
+  - Novel analytical approaches demonstrated through:
+    - Resource contention pattern identification 
+    - Job failure correlation analysis
+    - Workload impact assessment
+  - Reusable analytical methodologies for:
+    - System behavior characterization 
+    - Failure pattern identification 
+    - Resource utilization optimization
+
+- Community Impact:
+  - Open access to production HPC operational data
+  - Enables new research in:
+    - Failure prediction and prevention 
+    - Resource allocation optimization 
+    - Job scheduling algorithms 
+    - System dependability analysis 
+  - Provides benchmark data for:
+    - Comparing system performance across institutions 
+    - Validating new HPC management approaches 
+    - Evaluating optimization strategies
+
+- Practical Applications:
+  - Direct applications for:
+    - System administrators (resource management)
+    - Researchers (research areas, performance optimizations, etc.)
+    - Policymakers (resource allocation)
+  - Tools and documentation for:
+    - Dataset utilization 
+    - Analysis reproduction 
+    - Extension to other institutions
 
 ## Related Work
 
