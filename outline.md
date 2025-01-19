@@ -249,24 +249,106 @@ FRESCO addresses these limitations through:
 
 
 ## Dataset Description
-### Data Collection
-- Collection methodology using XDMoD.
-- Time period and scope.
-> - Compare scope to existing datasets (e.g., USRC's historical data)
-- Anonymization process.
+
+### Data Collection Methodology
+
+#### Collection Framework
+- Data collected using XDMoD (Open XDMoD) monitoring framework
+- Collection period spans [TIME PERIOD]
+- Data gathered from multiple university computing clusters
+- Automated collection process to ensure consistency
+
+#### Data Sources
+- Resource usage metrics from system monitoring tools
+- Job information from scheduler logs
+- Error and failure logs from system logs
+- Performance counters and hardware metrics
+
+#### Anonymization Process
+- Sensitive information removal (usernames, group names, job names)
+- Consistent anonymization across institutions
+- Preservation of relationships between data points
+- Documentation of anonymization methodology
 
 ### Dataset Structure
-- Measurement metrics explanation
-> - Context for why these specific metrics were chosen based on industry standards
-- Job attributes
-- Time series format details
-> - Justification for time-series format based on analytical needs
+
+#### Core Measurement Metrics
+1. CPU Usage
+    - Per-core utilization
+    - Thread-level statistics
+    - Load averages
+
+2. GPU Usage
+    - Utilization rates
+    - Memory usage
+    - Temperature metrics
+
+3. Memory Usage
+    - Total consumption
+    - With and without disk cache
+    - Page fault statistics
+
+4. Network File System (NFS) Usage
+    - Read/write operations
+    - Bandwidth utilization
+    - Connection statistics
+
+5. Block I/O
+    - Disk read/write operations
+    - I/O wait times
+    - Queue lengths
+
+#### Job Attributes
+- Submission time
+- Start time
+- End time
+- Time limit
+- Number of hosts
+- Number of cores
+- Account/group information
+- Queue type
+- Host list
+- Exit codes
+- Resource allocations
+
+#### Time Series Format
+- Sampling interval: ????
+- Timestamp precision
+- Data alignment across metrics
+- Handling of missing data points
 
 ### Quality Assurance
-- Data validation methods
-> - Add comparison of data validation methods with other public datasets
-- Completeness checks
-- Known limitations -> data granularity and sample collection irregularity
+
+#### Completeness Checks
+- Coverage analysis across time periods
+- Missing data identification
+- Gap analysis and documentation
+- Cross-institutional data consistency
+
+#### Known Limitations
+1. Data Granularity
+    - Sampling frequency limitations
+
+2. Institutional Variations
+    - Hardware differences
+    - Configuration variations
+    - Policy differences
+    - Workload characteristics
+
+### Dataset Statistics
+- Total time period covered
+- Number of job records
+- Volume of metric data
+- Distribution of job types
+- Failure statistics
+- Resource usage patterns
+
+### Access and Usage
+- Data format specifications
+- Access procedures
+- Usage guidelines
+- Citation requirements
+- Tool recommendations
 
 ## Analysis Methodology
 - Data preprocessing steps
